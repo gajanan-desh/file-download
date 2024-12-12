@@ -6,10 +6,10 @@
   <title>Download File</title>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const fileURL = "https://https://gajanan-desh.github.io/file-download/main.py"; // Adjust this URL
+      const fileURL = "https://raw.githubusercontent.com/gajanan-desh/file-download/main/main.py"; // GitHub raw URL
       const anchor = document.createElement("a");
       anchor.href = fileURL;
-      anchor.download = "main.py"; // File name for download
+      anchor.download = "main.py"; // Suggested filename for download
       document.body.appendChild(anchor);
       anchor.click();
       document.body.removeChild(anchor);
