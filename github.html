@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download File</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fileURL = "https://yourusername.github.io/file-download/dummy.pdf"; // Adjust this URL
+      const anchor = document.createElement("a");
+      anchor.href = fileURL;
+      anchor.download = "dummy.pdf"; // File name for download
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+    });
+  </script>
+</head>
+<body>
+  <h1>File Download</h1>
+  <p>The file will start downloading automatically.</p>
+</body>
+</html>
